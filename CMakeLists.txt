@@ -22,6 +22,10 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif(NOT CMAKE_BUILD_TYPE)
 
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 add_executable(${PROJECT_NAME} ${WIN32_GUI} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE "include" "lib")
 set(SFML_LIBS sfml-system sfml-window sfml-graphics)
