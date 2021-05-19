@@ -127,13 +127,26 @@ struct Ant
 		}
 	}
 
-	void checkColony(ColonyBase& base)
+	void checkColony(ColonyBase& base, ColonyBase& base2)
 	{
 		if (getLength(position - base.position) < base.radius) {
 			marker_add.target = marker_period;
 			if (phase == Mode::ToHome || phase == Mode::ToHomeNoFood) {
 				phase = Mode::ToFood;
 				base.addFood(1.0f);
+				direction.addNow(PI);
+			}
+			// Refill
+			const float refill_cost = 1.0f;
+			const float needed_refill = refill_cost * (autonomy / max_autonomy);
+			autonomy = 0.0f;
+			phase = Mode::ToFood;
+			markers_count = 0.0f;
+		} else if (getLength(position - base2.position) < base2.radius) {
+			marker_add.target = marker_period;
+			if (phase == Mode::ToHome || phase == Mode::ToHomeNoFood) {
+				phase = Mode::ToFood;
+				base2.addFood(1.0f);
 				direction.addNow(PI);
 			}
 			// Refill

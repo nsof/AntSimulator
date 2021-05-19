@@ -38,7 +38,7 @@ struct Colony
 		}
 	}
 
-	void update(float dt, World& world)
+	void update(float dt, World& world, Colony& other)
 	{
 		pop_diff_update.update(dt);
 		if (pop_diff_update.ready()) {
@@ -55,7 +55,7 @@ struct Colony
 		
 		for (Ant& ant : ants) {
 			ant.update(dt, world);
-			ant.checkColony(base);
+			ant.checkColony(base, other.base);
 		}
 
 		// Remove dead ants
