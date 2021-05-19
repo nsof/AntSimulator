@@ -13,7 +13,6 @@ DisplayManager::DisplayManager(sf::RenderTarget& target, sf::RenderWindow& windo
 	, update(true)
 	, debug_mode(false)
 	, m_world(world)
-	, m_colony(colony)
 	, clic(false)
 	, m_mouse_button_pressed(false)
 	, pause(false)
@@ -71,10 +70,10 @@ void DisplayManager::draw()
 	m_world.renderMap(m_target, rs_ground);
 
 	// Render ants
-	if (render_ants) {
+	/*if (render_ants) {
 		colony_renderer.renderAnts(m_colony, m_target, rs);
 	}
-	colony_renderer.render(m_colony, m_target, rs_ground);
+	colony_renderer.render(m_colony, m_target, rs_ground);*/
 
 	render_time = clock.getElapsedTime().asMicroseconds() * 0.001f;
 }

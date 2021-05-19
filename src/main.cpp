@@ -34,7 +34,10 @@ int main()
 	window.setFramerateLimit(60);
 
 	World world(Conf::WORLD_WIDTH, Conf::WORLD_HEIGHT);
-	Colony colony(Conf::COLONY_POSITION.x, Conf::COLONY_POSITION.y, Conf::ANTS_COUNT);
+	Colony colony(300.0f, Conf::WORLD_HEIGHT * 0.5f, Conf::ANTS_COUNT/2);
+	Colony colony2(Conf::WIN_WIDTH - 300.0f, Conf::WORLD_HEIGHT * 0.5f, Conf::ANTS_COUNT/2);
+	ColonyRenderer renderer;
+
 	for (uint32_t i(0); i < 64; ++i) {
 		float angle = float(i) / 64.0f * (2.0f * PI);
 		world.addMarker(colony.base.position + 16.0f * sf::Vector2f(cos(angle), sin(angle)), Mode::ToHome, 10.0f, true);
@@ -55,7 +58,7 @@ int main()
 				}
 				else if (food_map.getPixel(x, y).g > 100) {
 					const float green = food_map.getPixel(x, y).g;
-					world.addFoodAt(position.x, position.y, green * 0.025f);
+					world.addFoodAt(position.x, position.y, 4);
 				}
 			}
 		}
@@ -97,12 +100,18 @@ int main()
 
 		if (!display_manager.pause) {
 			colony.update(dt, world);
-			display_manager.colony_renderer.updatePopulation(colony, dt);
+			colony2.update(dt, world);
+			//display_manager.colony_renderer.updatePopulation(colony, dt);
 			world.update(dt);
 		}
 
 		window.clear(sf::Color(94, 87, 87));
 		display_manager.draw();
+		sf::RenderStates states;
+		renderer.renderAnts(colony, window, states);
+		renderer.render(colony, window, states);
+		renderer.renderAnts(colony2, window, states);
+		renderer.render(colony2, window, states);
 		window.display();
 
 		fps.addValue(1.0f / clock.restart().asSeconds());

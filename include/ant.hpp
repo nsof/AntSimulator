@@ -35,7 +35,7 @@ struct Ant
 	float markers_count;
 	float liberty_coef;
 	float autonomy;
-	float max_autonomy = 400.0f;
+	float max_autonomy = 400000.0f;
 
 	Ant(float x, float y, float angle)
 		: position(x, y)
@@ -236,7 +236,7 @@ struct Ant
 	{
 		markers_count += marker_add.target;
 		if (phase == Mode::ToHome || phase == Mode::ToFood) {
-			const double intensity = getMarkerIntensity(0.01f);
+			const double intensity = getMarkerIntensity(0.05f);
 			world.addMarker(position, phase == Mode::ToFood ? Mode::ToHome : Mode::ToFood, intensity);
 		}
 		else if (phase == Mode::ToHomeNoFood) {

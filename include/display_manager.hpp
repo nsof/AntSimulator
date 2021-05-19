@@ -59,7 +59,7 @@ private:
 	sf::VertexArray m_va;
 
 	World& m_world;
-	Colony& m_colony;
+	//Colony& m_colony;
 
 	bool m_mouse_button_pressed;
 	sf::Vector2i m_drag_clic_position, m_clic_position;

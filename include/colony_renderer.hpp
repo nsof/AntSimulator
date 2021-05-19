@@ -102,12 +102,12 @@ struct ColonyRenderer
 		circle.setFillColor(Conf::COLONY_COLOR);
 		target.draw(circle, states);
 
-		CircularGauge food_gauge(colony.base.position, 12.0f, 17.0f, sf::Color::White);
+		/*CircularGauge food_gauge(colony.base.position, 12.0f, 17.0f, sf::Color::White);
 		food_gauge.max_value = colony.base.max_food;
 		food_gauge.current_value = colony.base.food;
-		food_gauge.render(target, states);
+		food_gauge.render(target, states);*/
 		
-		const float margin = 10.0f;
+		/*const float margin = 10.0f;
 		sf::RectangleShape population_background(sf::Vector2f(population.width + 2.0f * margin,
 															  population.height + 5.0f * margin));
 		population_background.setFillColor(sf::Color(50, 50, 50, 200));
@@ -136,6 +136,6 @@ struct ColonyRenderer
 		target.draw(text);
 
 		population.render(target);
-		food_acc.render(target);
+		food_acc.render(target);*/
 	}
 };
