@@ -9,10 +9,11 @@
 
 struct Colony
 {
-	Colony(float x, float y, uint32_t n)
+	Colony(float x, float y, uint32_t n, float size)
 		: position(x, y)
 		, last_direction_update(0.0f)
 		, ants_va(sf::Quads, 4 * n)
+		, size(size)
 	{
 		for (uint32_t i(n); i--;) {
 			ants.emplace_back(x, y, getRandRange(2.0f * PI));

@@ -33,7 +33,7 @@ int main()
 	window.setFramerateLimit(60);
 
 	World world(Conf::WORLD_WIDTH, Conf::WORLD_HEIGHT);
-	Colony colony(Conf::COLONY_POSITION.x, Conf::COLONY_POSITION.y, Conf::ANTS_COUNT);
+	Colony colony(Conf::COLONY_POSITION.x, Conf::COLONY_POSITION.y, Conf::ANTS_COUNT, Conf::COLONY_SIZE);
 	for (uint32_t i(0); i < 64; ++i) {
 		float angle = float(i) / 64.0f * (2.0f * PI);
 		world.addMarker(colony.position + 16.0f * sf::Vector2f(cos(angle), sin(angle)), Mode::ToHome, 10.0f, true);
@@ -44,7 +44,7 @@ int main()
 	sf::Vector2f last_clic;
 
 	sf::Image food_map;
-	if (food_map.loadFromFile("map.bmp")) {
+	if (food_map.loadFromFile("map.png")) {
 		for (uint32_t x(0); x < food_map.getSize().x; ++x) {
 			for (uint32_t y(0); y < food_map.getSize().y; ++y) {
 				const sf::Vector2f position = float(world.markers.cell_size) * sf::Vector2f(to<float>(x), to<float>(y));
