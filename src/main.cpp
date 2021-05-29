@@ -32,6 +32,7 @@ void loadUserConf()
 			Conf::TO_FOOD_COLOR = sf::Color(jconf["to_food_color"]["r"], jconf["to_food_color"]["g"], jconf["to_food_color"]["b"]);
 			Conf::COLONY_COLOR = sf::Color(jconf["colony_color"]["r"], jconf["colony_color"]["g"], jconf["colony_color"]["b"]);
 			Conf::WALL_COLOR = sf::Color(jconf["wall_color"]["r"], jconf["wall_color"]["g"], jconf["wall_color"]["b"]);
+			Conf::COLONY_POSITION = sf::Vector2f(jconf["colony_position"]["x"], jconf["colony_position"]["y"]);
 	}
 	else {
 			std::cout << "Couldn't find 'conf.txt or conf.json', loading default" << std::endl;
