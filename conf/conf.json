@@ -38,5 +38,6 @@
   "colony_position": {
     "x": 200,
     "y": 900
-  }
+  },
+  "food_chuncks": 2
 }

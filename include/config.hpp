@@ -20,6 +20,7 @@ struct DefaultConf
 	static uint32_t WORLD_WIDTH;
 	static uint32_t WORLD_HEIGHT;
 	static uint32_t ANTS_COUNT;
+	static uint32_t FOOD_CHUNKS;
 	static std::shared_ptr<sf::Texture> ANT_TEXTURE;
 	static std::shared_ptr<sf::Texture> MARKER_TEXTURE;
 
@@ -66,6 +67,9 @@ template<typename T>
 float DefaultConf<T>::COLONY_SIZE = 20.0f;
 template<typename T>
 sf::Vector2f DefaultConf<T>::COLONY_POSITION = sf::Vector2f(DefaultConf<T>::WIN_WIDTH * 0.5f, DefaultConf<T>::WIN_HEIGHT * 0.5f);
+
+template<typename T>
+uint32_t DefaultConf<T>::FOOD_CHUNKS = 2;
 
 template<typename T>
 std::shared_ptr<sf::Texture> DefaultConf<T>::ANT_TEXTURE;

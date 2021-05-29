@@ -33,8 +33,9 @@ void loadUserConf()
 			Conf::COLONY_COLOR = sf::Color(jconf["colony_color"]["r"], jconf["colony_color"]["g"], jconf["colony_color"]["b"]);
 			Conf::WALL_COLOR = sf::Color(jconf["wall_color"]["r"], jconf["wall_color"]["g"], jconf["wall_color"]["b"]);
 			Conf::COLONY_POSITION = sf::Vector2f(jconf["colony_position"]["x"], jconf["colony_position"]["y"]);
-	}
-	else {
+			Conf::FOOD_CHUNKS = jconf["food_chunks"];
+		}
+		else {
 			std::cout << "Couldn't find 'conf.txt or conf.json', loading default" << std::endl;
 		}
 	}
@@ -68,7 +69,7 @@ int main()
 			for (uint32_t y(0); y < food_map.getSize().y; ++y) {
 				const sf::Vector2f position = float(world.markers.cell_size) * sf::Vector2f(to<float>(x), to<float>(y));
 				if (food_map.getPixel(x, y).g > 100) {
-					world.addFoodAt(position.x, position.y, 5);
+					world.addFoodAt(position.x, position.y, Conf::FOOD_CHUNKS);
 				} else if (food_map.getPixel(x, y).r > 100) {
 					world.addWall(position);
 				}
