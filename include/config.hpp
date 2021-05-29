@@ -7,12 +7,12 @@
 template<typename T>
 struct DefaultConf
 {
-	const static sf::Color ANT_COLOR;
-	const static sf::Color FOOD_COLOR;
-	const static sf::Color TO_FOOD_COLOR;
-	const static sf::Color TO_HOME_COLOR;
-	const static sf::Color COLONY_COLOR;
-	const static sf::Color WALL_COLOR;
+	static sf::Color ANT_COLOR;
+	static sf::Color FOOD_COLOR;
+	static sf::Color TO_FOOD_COLOR;
+	static sf::Color TO_HOME_COLOR;
+	static sf::Color COLONY_COLOR;
+	static sf::Color WALL_COLOR;
 	static float COLONY_SIZE;
 	static sf::Vector2f COLONY_POSITION;
 	static uint32_t WIN_WIDTH;
@@ -41,17 +41,17 @@ struct DefaultConf
 };
 
 template<typename T>
-const sf::Color DefaultConf<T>::ANT_COLOR = sf::Color(255, 73, 68);
+sf::Color DefaultConf<T>::ANT_COLOR = sf::Color(202, 126, 86);
 template<typename T>
-const sf::Color DefaultConf<T>::FOOD_COLOR = sf::Color(66, 153, 66);
+sf::Color DefaultConf<T>::FOOD_COLOR = sf::Color(66, 153, 66);
 template<typename T>
-const sf::Color DefaultConf<T>::TO_FOOD_COLOR = sf::Color(0, 255, 0);
+sf::Color DefaultConf<T>::TO_FOOD_COLOR = sf::Color(0, 255, 0);
 template<typename T>
-const sf::Color DefaultConf<T>::TO_HOME_COLOR = sf::Color(255, 0, 0);
+sf::Color DefaultConf<T>::TO_HOME_COLOR = sf::Color(196, 196, 196);
 template<typename T>
-const sf::Color DefaultConf<T>::COLONY_COLOR = DefaultConf<T>::ANT_COLOR;
+sf::Color DefaultConf<T>::COLONY_COLOR = sf::Color(218, 167, 139);
 template<typename T>
-const sf::Color DefaultConf<T>::WALL_COLOR = sf::Color(94, 87, 87);
+sf::Color DefaultConf<T>::WALL_COLOR = sf::Color(94, 87, 87);
 template<typename T>
 uint32_t DefaultConf<T>::WIN_WIDTH = 1920;
 template<typename T>

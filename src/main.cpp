@@ -5,8 +5,8 @@
 #include "colony.hpp"
 #include "config.hpp"
 #include "display_manager.hpp"
-
-
+#include "json.hpp"
+using json = nlohmann::json;
 
 void loadUserConf()
 {
@@ -15,9 +15,27 @@ void loadUserConf()
 		conf_file >> Conf::WIN_WIDTH;
 		conf_file >> Conf::WIN_HEIGHT;
 		conf_file >> Conf::ANTS_COUNT;
+	} else {
+		std::ifstream json_conf_file("conf.json");
+		if (json_conf_file) {
+			json jconf;
+			json_conf_file >> jconf;
+			Conf::WIN_WIDTH = jconf["win_width"];
+			Conf::WIN_HEIGHT = jconf["win_height"];
+			Conf::WORLD_WIDTH = jconf["world_width"];
+			Conf::WORLD_HEIGHT = jconf["world_height"];
+			Conf::COLONY_SIZE = jconf["colony_size"];
+			Conf::ANTS_COUNT = jconf["ants_count"];
+			Conf::ANT_COLOR = sf::Color(jconf["ant_color"]["r"], jconf["ant_color"]["g"], jconf["ant_color"]["b"]);
+			Conf::FOOD_COLOR = sf::Color(jconf["food_color"]["r"], jconf["food_color"]["g"], jconf["food_color"]["b"]);
+			Conf::TO_HOME_COLOR = sf::Color(jconf["to_home_color"]["r"], jconf["to_home_color"]["g"], jconf["to_home_color"]["b"]);
+			Conf::TO_FOOD_COLOR = sf::Color(jconf["to_food_color"]["r"], jconf["to_food_color"]["g"], jconf["to_food_color"]["b"]);
+			Conf::COLONY_COLOR = sf::Color(jconf["colony_color"]["r"], jconf["colony_color"]["g"], jconf["colony_color"]["b"]);
+			Conf::WALL_COLOR = sf::Color(jconf["wall_color"]["r"], jconf["wall_color"]["g"], jconf["wall_color"]["b"]);
 	}
 	else {
-		std::cout << "Couldn't find 'conf.txt', loading default" << std::endl;
+			std::cout << "Couldn't find 'conf.txt or conf.json', loading default" << std::endl;
+		}
 	}
 }
 
