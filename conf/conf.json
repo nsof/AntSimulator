@@ -1,0 +1,42 @@
+{
+  "win_width": 1920,
+  "win_height": 1080,
+  "world_width": 1920,
+  "world_height": 1080,
+  "colony_size": 10,
+  "ants_count": 1000,
+  "ant_color": {
+    "r": 255,
+    "g": 255,
+    "b": 255
+  },
+  "food_color": {
+    "r": 202,
+    "g": 126,
+    "b": 86
+  },
+  "to_home_color": {
+    "r": 255,
+    "g": 255,
+    "b": 255
+  },
+  "to_food_color": {
+    "r": 0,
+    "g": 0,
+    "b": 255
+  },
+  "colony_color": {
+    "r": 255,
+    "g": 255,
+    "b": 255
+  },
+  "wall_color": {
+    "r": 94,
+    "g": 87,
+    "b": 87
+  },
+  "colony_position": {
+    "x": 200,
+    "y": 900
+  }
+}
