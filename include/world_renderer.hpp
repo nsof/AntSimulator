@@ -56,7 +56,7 @@ struct WorldRenderer : public AsyncRenderer
 						std::min(255.0f, intensity_1_color.y + intensity_2_color.y),
 						std::min(255.0f, intensity_1_color.z + intensity_2_color.z)
 					);
-					color = sf::Color(sf::Color(to<uint8_t>(mixed_color.x), to<uint8_t>(mixed_color.y), to<uint8_t>(mixed_color.z)));
+					color = sf::Color(to<uint8_t>(mixed_color.x), to<uint8_t>(mixed_color.y), to<uint8_t>(mixed_color.z));
 					const float offset = 32.0f;
 					va[4 * i + 0].texCoords = sf::Vector2f(offset, offset);
 					va[4 * i + 1].texCoords = sf::Vector2f(100.0f - offset, offset);
